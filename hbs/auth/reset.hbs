@@ -1,0 +1,29 @@
+<div class="forgetPassword">
+    <div class="row">
+        <div class="col-md-5 col-12 container">
+            
+            <h3 class="text-center title text-light">Are you forget password ?</h3>
+            
+            {{#if error}}
+                <div class="alert text-center text-light alert-dismissible bg-danger mx-auto w-75">
+                    <button class="close" data-dismiss="alert">&times;</button>
+                    {{error}}
+                </div>
+            {{/if}}
+
+            <form class="form mx-auto w-75" action="/auth/reset" method="POST">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <h3 class="float-left fa fa-home text-warning">
+                    <a href="/" class="text-warning"> Home </a>
+                </h3>
+
+                <button type="submit" class="btn btn-success float-right">Reset</button>
+            </form>
+        </div>
+    </div>
+</div>

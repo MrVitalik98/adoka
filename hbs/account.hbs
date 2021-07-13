@@ -1,0 +1,78 @@
+<div class="container mt-5">
+    <div class="accountP">
+        {{#if creater.avatarURL}}
+            <div>
+                <img src="{{creater.avatarURL}}" alt="avatar-{{creater.firstname}}" class="mx-auto border avatar d-block border-dark shadow-lg rounded" id="accountPhoto"/>
+            </div>
+        {{else}}
+            <div>
+                <img src="https://nodejs.org/static/images/logo-hexagon-card.png" alt="photoProfil" class="mx-auto border d-block border-dark shadow-lg" id="accountPhoto" name="avatar"/>
+            </div>
+        {{/if}}
+
+        <br>
+
+        <div class="fullName">
+            <h5 class="text-center">
+                <span>{{creater.firstname}}</span>
+                    &nbsp;
+                <span>{{creater.lastname}}</span>
+            </h5>
+
+            {{#if isAuth}}
+                <form action="/chatroom" method="POST">
+                    <input type="hidden" name="id" value={{creater._id}}>
+                    <input type="hidden" name="_csrf" value="{{csrf}}">
+                    <button type="submit" class="btn btn-success d-block mx-auto">Send Message</button>
+                </form>
+            {{/if}}
+        </div>
+    </div>
+    
+    <br>
+    <hr>
+
+    <h5 class="text-center text-info font-weight-bold text-monospace">COURSES
+	{{#if courses.length}}
+	        <kbd class="small bg-primary">{{courses.length}}</kbd>
+	{{/if}}
+    </h5>
+
+    <div class="mycourses courses" data-csrf="{{csrf}}">
+        {{#if courses.length}}
+            {{#each courses}}
+                <div class="card mx-auto border shadow" id="{{_id}}">
+                    <div class="card-header">
+                        <img src="{{image}}" alt="{{title}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title text-center">
+                            <a href="/courses/{{_id}}">{{title}}</a>
+                        </h4>
+                        
+                        <div class="item">
+                            {{#if @root.isAuth}}
+                                <button class="btn green waves-effect shadow d-flex float-left" onclick="addToCart(this)">
+                                    <i class="material-icons add_shopping_cart">add_shopping_cart</i>
+                                    <span>&nbsp;Add</span>
+                                </button>
+
+                                <p class="float-right pr mt-0">Price:
+                                    <strong class="price">{{price}}</strong>
+                                </p>
+                            {{else}}
+                                <p class="text-right pr mt-0">Price:
+                                    <strong class="price">{{price}}</strong>
+                                </p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <h6 class="text-center text-danger">No Courses</h6>
+        {{/if}}    
+    </div>
+    
+</div>

@@ -1,0 +1,51 @@
+
+<div class="jumbotron">
+    <h4 class="text-center">Create New Course</h4>
+</div>
+
+{{#if error}}
+  <div class="alert bg-danger w-75 mx-auto my-4 text-center text-light alert-dismissible">
+    <button class="close" data-dismiss="alert">&times;</button>
+    {{error}}
+  </div>
+{{/if}}
+
+<div class="container">
+  <div class="row">
+    <form class="col 12s" action="/add/course" method="POST">
+     <div class="row">
+        <div class="input-field col s6">
+          <input  id="title" type="text" minlength="2" class="validate" name="title" value="{{data.title}}" required>
+          <label for="title">Title</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Course title</span>
+        </div>
+    
+         <div class="input-field col s6">
+          <input id="price" type="number" min="1" class="validate" name="price" value="{{data.price}}" required>
+          <label for="price">Price</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Course price</span>
+        </div>
+     </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="url" type="url" class="validate" name="image" required value="{{data.image}}">
+          <label for="url">URL Image</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Course logo</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea" name="text">{{data.text}}</textarea>
+          <label for="textarea1">Text</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Course body</span>
+        </div>
+      </div>
+
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+
+    <button class="btn green waves-effect float-right my-2" type="submit">Create</button>
+    </form>
+  </div>
+</div>

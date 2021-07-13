@@ -1,0 +1,251 @@
+  
+{{#if isAuth}}
+    <nav class="bg-dark">
+        <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <i class="material-icons dehaze">menu</i>
+        </a>
+        <div class="nav-wrapper">
+          <p class="brand-logo ml-3">aDoKa</p>
+          <ul id="nav-desktop" class="right hide-on-med-and-down">
+            <input type="hidden" id="userId" value="{{user._id}}">
+
+            {{#if isCourses}}
+                <li class="active">
+                  <a href="/courses"><i class="material-icons apps">apps</i></a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/courses"><i class="material-icons apps">apps</i></a>
+                </li>
+            {{/if}}
+
+            {{#if isMessage}}
+                <li class="active">
+                  <a href="/chats"><i class="material-icons message">message</i></a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/chats"><i class="material-icons message">message</i></a>
+                </li>
+            {{/if}}
+
+            {{#if isAdd}}
+              <li class="active">
+                <a href="/add"><i class="material-icons add">add</i></a>
+              </li>
+              {{else}}
+              <li>
+                <a href="/add"><i class="material-icons add">add</i></a>
+              </li>
+            {{/if}}
+
+            {{#if isCart}}
+                <li class="active">
+                  <a href="/cart"><i class="material-icons local_grocery_store">local_grocery_store</i></a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/cart"><i class="material-icons local_grocery_store">local_grocery_store</i></a>
+                </li>
+            {{/if}}
+
+            {{#if isOrders}}
+                <li class="active">
+                  <a href="/orders"><i class="material-icons call_to_action">call_to_action</i></a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/orders"><i class="material-icons call_to_action">call_to_action</i></a>
+                </li>
+            {{/if}}
+
+            {{#if isAccount}}
+              <li class="active">
+                <a href="/myaccount"><i class="material-icons account_box">account_box</i></a>
+              </li>
+              {{else}}
+              <li>
+                <a href="/myaccount"><i class="material-icons account_box">account_box</i></a>
+              </li>
+            {{/if}}
+
+            {{#if isSetting}}
+                <li class="active">
+                  <a href="/settings">
+                    <i class="material-icons settings">settings</i>
+                 </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/settings">
+                    <i class="material-icons settings">settings</i>
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isLogout}}
+                <li class="active">
+                  <a href="/auth/logout"><i class="material-icons exit_to_app">exit_to_app</i></a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/auth/logout"><i class="material-icons exit_to_app">exit_to_app</i></a>
+                </li>
+            {{/if}}
+          </ul>
+        </div>
+      </nav>     
+
+      
+
+      <ul id="slide-out" class="sidenav">
+          <li>
+            <div class="user-view">
+                <div class="background">
+                    <img class="shadow border" src="https://ukcollegeofbusiness.org/wp-content/uploads/2019/01/courses.jpg" class="logo">  
+                </div>
+              {{#if user.avatarURL}}
+                <h6 class="accountPhoto"><img src="{{user.avatarURL}}" alt='avatar-{{user.firstname}}'></h6>
+              {{else}}
+                <h6 class="accountPhoto"><img src="https://nodejs.org/static/images/logo-hexagon-card.png"></h6>
+              {{/if}}
+              <input type="hidden" id="userId" value="{{user._id}}">
+
+              <h5 class="userName">
+                <span class="black-text name">{{user.firstname}} {{user.lastname}}</span>
+                <span class="black-text email">{{user.email}}</span>
+              </h5>
+            </div>
+          </li>
+
+            {{#if isAccount}}
+              <li class="nav-item active">
+                <a href="/myaccount" class="nav-link">
+                  <i class="material-icons account_box">account_box</i>
+                  My Account
+                </a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a href="/myaccount" class="nav-link">
+                  <i class="material-icons account_box">account_box</i>
+                  My Account
+                </a>
+              </li>
+            {{/if}}
+
+            {{#if isAdd}}
+              <li class="nav-item active">
+                <a href="/add" class="nav-link">
+                  <i class="material-icons add">add</i>
+                  Create Course
+                </a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a href="/add" class="nav-link">
+                  <i class="material-icons add">add</i>
+                  Create Course
+                </a>
+              </li>
+            {{/if}}
+           
+            <hr>
+
+            {{#if isCourses}}
+                <li class="active">
+                  <a href="/courses">
+                    <i class="material-icons apps">apps</i>
+                    Courses
+                  </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/courses">
+                    <i class="material-icons apps">apps</i>
+                    Courses
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isMessage}}
+                <li class="active">
+                  <a href="/chats">
+                    <i class="material-icons message">message</i>
+                    Message
+                  </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/chats">
+                    <i class="material-icons message">message</i>
+                    Message
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isCart}}
+                <li class="active">
+                  <a href="/cart">
+                   <i class="material-icons local_grocery_store">local_grocery_store</i>
+                    Cart
+                  </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/cart">
+                    <i class="material-icons local_grocery_store">local_grocery_store</i>
+                    Cart
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isOrders}}
+                <li class="active">
+                  <a href="/orders">
+                    <i class="material-icons call_to_action">call_to_action</i>
+                    Orders
+                 </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/orders">
+                    <i class="material-icons call_to_action">call_to_action</i>
+                    Orders
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isSetting}}
+                <li class="active">
+                  <a href="/settings">
+                    <i class="material-icons settings">settings</i>
+                    Settings
+                 </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/settings">
+                    <i class="material-icons settings">settings</i>
+                    Settings
+                  </a>
+                </li>
+            {{/if}}
+
+            {{#if isLogout}}
+                <li class="active">
+                  <a href="/auth/logout">
+                    <i class="material-icons exit_to_app">exit_to_app</i>
+                    Logout
+                  </a>
+                </li>
+            {{else}}
+                <li>
+                  <a href="/auth/logout">
+                    <i class="material-icons exit_to_app">exit_to_app</i>
+                    Logout
+                  </a>
+                </li>
+            {{/if}}
+      </ul>
+{{/if}}

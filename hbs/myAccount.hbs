@@ -1,0 +1,88 @@
+<div class="container mt-5">
+    <div class="accountP">
+        {{#if user.avatarURL}}
+            <div>
+                <img src="{{user.avatarURL}}" alt="avatar-{{user.firstname}}" class="mx-auto border avatar d-block border-dark shadow-lg rounded" id="accountPhoto">
+            </div>
+        {{else}}
+            <div>
+                <img src="https://nodejs.org/static/images/logo-hexagon-card.png" alt="photoProfil" class="mx-auto border d-block border-dark shadow-lg rounded" id="accountPhoto" name="avatar">
+            </div>
+        {{/if}}
+
+
+        <div class="fullName">
+            <h5 class="text-center">
+                <span>{{user.firstname}}</span>
+                &nbsp;
+                <span>{{user.lastname}}</span>
+            </h5>
+            <h6 class="text-center">{{user.email}}</h6>
+        </div>
+    </div>
+    <br>
+        {{#if success}}
+            <div class="alert h5 w-75 mx-auto alert-dismissible bg-success text-light text-center">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{success}}
+            </div>
+        {{/if}}
+    <br>
+    <hr>
+
+    <h5 class="text-center text-info font-weight-bold text-monospace">My Courses
+	{{#if mycourses.length}}
+	    	<kbd class="small bg-primary">{{mycourses.length}}</kbd>
+    	{{/if}}
+    </h5>
+    <a href="/add" class="btn green waves-effect" id="addNewCourse">
+        Add New Course
+    </a>
+
+    <br>
+
+    {{#if error}}
+        <div class="alert bg-danger text-center text-light alert-dismissible w-75 my-4">
+            <button class="close" data-toggle="alert-dismiss">&times;</button>
+            {{error}}
+        </div>
+    {{/if}}
+
+    <br>
+
+    <div class="mycourses">
+        {{#if mycourses.length}}
+            {{#each mycourses}}
+                <div class="card mx-auto border shadow" id="{{_id}}" data-csrf="{{@root.csrf}}">
+                    <div class="card-header">
+                        <button class="btn red waves-effect float-right shadow" onclick="removeMyCourse(this)">
+                            <i class="material-icons cancel">cancel</i>
+                        </button>
+                        <img src="{{image}}" alt="{{title}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title text-center">
+                            <a href="/courses/{{_id}}">{{title}}</a>
+                        </h4>
+                        
+                        <div class="item">
+                            <a href="/edit/{{_id}}" class="btn green waves-effect float-left shadow d-flex">
+                                <i class="material-icons edit">edit</i>
+                                <span>&nbsp;Edit</span>
+                            </a>
+
+                            <p class="float-right pr">Price:
+                                <strong class="price">{{price}}</strong>
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <h6 class="text-center text-danger">No Courses</h6>
+        {{/if}}    
+    </div>
+    
+</div>
