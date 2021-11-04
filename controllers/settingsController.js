@@ -1,11 +1,11 @@
-const User = require('../models/user');
-const Course = require('../models/course');
-const Chat = require('../models/chat');
-const {validationResult} = require('express-validator');
-const keys = require('../keys');
 const aws = require('aws-sdk');
 const uuid = require('uuid');
 const bcrypt = require('bcryptjs');
+const User = require('../models/user');
+const Course = require('../models/course');
+const Chat = require('../models/chat');
+const { validationResult } = require('express-validator');
+const keys = require('../keys');
 
 
 const s3 = new aws.S3({

@@ -236,15 +236,13 @@ a.register, a.forgetPass, a.courses {
 }
 
 .home {
-  overflow: hidden;
   background-color: #fff;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 .home .row {
-  height: 669px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,6 +254,11 @@ a.register, a.forgetPass, a.courses {
 .home .row .alert {
   position: absolute;
   width: 97%;
+}
+
+.home .row .col-12:first-child {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .home .row .col-12:first-child .item {
@@ -273,7 +276,7 @@ a.register, a.forgetPass, a.courses {
 .home .row .col-12:last-child {
   background: url("../images/green-leaves-1072179.jpg") center no-repeat;
   background-size: cover;
-  height: 669px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -285,10 +288,12 @@ a.register, a.forgetPass, a.courses {
           justify-content: center;
   color: #fff;
   text-shadow: 1px 1px 0px #000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .home .row .col-12:last-child .item {
-  padding: 0 100px 0 100px;
+  padding: 0 100px;
   font-family: 'New Times Roman';
 }
 
@@ -424,13 +429,25 @@ a.register, a.forgetPass, a.courses {
           justify-content: center;
 }
 
-.chatroom p#arrow_back {
-  margin: -20px 0 0 0;
-  display: inline-block;
+.chatroom #arrow_back {
+  margin: -20px 0 0;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
 }
 
-.chatroom p#arrow_back a {
+.chatroom #arrow_back a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
 }
 
@@ -440,11 +457,24 @@ a.register, a.forgetPass, a.courses {
   border-radius: 50%;
 }
 
+.chatroom .container {
+  height: 50%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0 20px auto 78px;
+  -ms-grid-columns: 100%;
+      grid-template: 0 20px auto 78px / 100%;
+}
+
+.chatroom #chat::-webkit-scrollbar {
+  width: 10px;
+}
+
 .chatroom #chat {
   width: 100%;
   overflow: auto;
-  height: 470px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px;
+  height: 400px;
 }
 
 .chatroom #chat .btn {
@@ -484,10 +514,8 @@ a.register, a.forgetPass, a.courses {
   text-decoration: none;
 }
 
-@media screen and (max-width: 758px) {
+@media screen and (max-width: 768px) {
   .home {
-    overflow-x: hidden;
-    overflow-y: auto;
     background-color: #d5dfd5;
   }
   .home .row {
@@ -503,7 +531,6 @@ a.register, a.forgetPass, a.courses {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 100%;
   }
   .home .row .col-12:first-child {
     -ms-grid-row: 3;
@@ -523,7 +550,7 @@ a.register, a.forgetPass, a.courses {
     margin: 30px 0 30px 0;
   }
   .home .row .col-12:last-child {
-    height: 250px;
+    height: 280px;
   }
   .home .row .col-12:last-child .item {
     padding: 0 40px 0 40px;
@@ -539,7 +566,7 @@ a.register, a.forgetPass, a.courses {
   }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 576px) {
   h3 {
     font-size: 34px;
     text-transform: capitalize;
@@ -643,7 +670,10 @@ a.register, a.forgetPass, a.courses {
     width: 242px;
   }
   .chatroom #chat {
-    height: 450px;
+    height: 420px;
+  }
+  .chatroom #chat::-webkit-scrollbar {
+    display: none;
   }
   .chatroom #chat .message {
     max-width: 270px;
@@ -662,9 +692,6 @@ a.register, a.forgetPass, a.courses {
   }
   .findCourse input[type="search"] {
     width: 200px;
-  }
-  .chatroom #chat {
-    height: 400px;
   }
   .chatroom #chat .message {
     max-width: 220px;
@@ -700,4 +727,4 @@ a.register, a.forgetPass, a.courses {
     max-width: 150px;
   }
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=index.css.map */
