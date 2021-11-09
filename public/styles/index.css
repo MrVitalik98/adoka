@@ -265,8 +265,19 @@ a.register, a.forgetPass, a.courses {
   margin-top: 120px;
 }
 
+.home .row .col-12:first-child .item h2 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
 .home .row .col-12:first-child .item form {
   margin: 50px 0 80px 0;
+}
+
+.home .row .col-12:first-child .item form input {
+  height: 42px;
+  border-radius: 8px;
+  padding: 0 20px;
 }
 
 .home .row .col-12:first-child .item form a small {
@@ -311,6 +322,7 @@ a.register, a.forgetPass, a.courses {
 }
 
 .forgetPassword .row {
+  height: 100vh;
   background: url("../images/close-up-photography-of-leaves-with-droplets-807598.jpg") center no-repeat;
   background-size: cover;
   display: -webkit-box;
@@ -322,7 +334,6 @@ a.register, a.forgetPass, a.courses {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 669px;
 }
 
 .forgetPassword .row .col-12 {
@@ -355,7 +366,7 @@ a.register, a.forgetPass, a.courses {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 669px;
+  height: 100vh;
 }
 
 .newPasswordPage .row .col-12 {
@@ -389,8 +400,7 @@ a.register, a.forgetPass, a.courses {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 670px;
-  height: auto;
+  height: 100vh;
 }
 
 .registerPage .row .col-12 {

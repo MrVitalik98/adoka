@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <h3 class="text-center">Settings</h3>
-    <h5 class="text-center">Change & Remove Account</h5>    
+    <h5 class="text-center">Change Personal Data</h5>    
     <br>
     {{#if error}}
         <div class="alert alert-dismissible bg-danger text-center text-light w-75 mx-auto">
@@ -15,7 +15,7 @@
         <div class="list-group">
 
         
-        <a href="#prphoto" class="text-dark list-group-item text-center" data-toggle="collapse">Change & Remove Avatar</a>
+        <a href="#prphoto" class="text-dark list-group-item text-center" data-toggle="collapse">Your Avatar</a>
 
             <div class="collapse" data-parent="#accordion" id="prphoto">
                 {{#if user.avatarURL}}
@@ -71,7 +71,7 @@
             
             
 
-            <a href="#name" class="text-dark list-group-item text-center" data-toggle="collapse">Change Firstname & Lastname</a>
+            <a href="#name" class="text-dark list-group-item text-center" data-toggle="collapse">Your Name</a>
             
             <div class="collapse" data-parent="#accordion" id="name">
                     <form class="m-3 px-3 mx-auto" action="/settings/change_name" method="POST">
@@ -100,7 +100,7 @@
 
 
 
-            <a href="#pass" class="text-dark list-group-item text-center" data-toggle="collapse">Change Password</a>
+            <a href="#pass" class="text-dark list-group-item text-center" data-toggle="collapse">Your Password</a>
             
             <div class="collapse" data-parent="#accordion" id="pass">
                     <form class="m-3 px-4 mx-auto" action="/settings/change_password" method="POST">

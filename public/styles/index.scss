@@ -253,7 +253,7 @@ a.register, a.forgetPass, a.courses{
 
 .home{
     background-color:#fff;
-    position:absolute;
+    position: absolute;
     overflow-x: hidden;
     
     .row {
@@ -271,10 +271,23 @@ a.register, a.forgetPass, a.courses{
                 box-sizing: border-box;
 
                 .item{
-                    margin-top:120px;
+                    margin-top: 120px;
+
+                    h2 {
+                        font: {
+                            size: 40px;
+                            weight: 500;
+                        };
+                    }
 
                     form{
-                        margin:50px 0 80px 0;
+                        margin: 50px 0 80px 0;
+
+                        input {
+                            height: 42px;
+                            border-radius: 8px;
+                            padding: 0 20px;
+                        }
 
                         a small{
                             font-size: 15px;
@@ -282,6 +295,7 @@ a.register, a.forgetPass, a.courses{
                     }
                 }
             }
+
             &:last-child{
                 background: url('../images/green-leaves-1072179.jpg') center no-repeat;
                 background-size: cover;
@@ -317,12 +331,12 @@ a.register, a.forgetPass, a.courses{
     overflow:hidden;
 
     .row{
+        height: 100vh;
         background:url('../images/close-up-photography-of-leaves-with-droplets-807598.jpg') center no-repeat;
         background-size:cover;
         display:flex;
         align-items:center;
         justify-content:center;
-        height:669px;
        
         .col-12{
             background:rgba(71, 84, 97, 0.96);
@@ -344,13 +358,14 @@ a.register, a.forgetPass, a.courses{
 
 .newPasswordPage{
     overflow:hidden;
+
     .row{
         background:url('../images/bench-cascade-creek-environment-355321.jpg') center no-repeat;
         background-size:cover;
         display:flex;
         align-items:center;
         justify-content:center;
-        height:669px;
+        height: 100vh;
         
         .col-12{
             background:rgba(71, 84, 97, 0.96);
@@ -372,14 +387,14 @@ a.register, a.forgetPass, a.courses{
 
 .registerPage{
     overflow: hidden;
+
     .row{
         background:url('../images/green-grass-field-and-green-tress-during-day-time-131723.jpg') center no-repeat;
         background-size:cover;
         display:flex;
         align-items:center;
         justify-content:center;
-        min-height:670px;
-        height:auto;
+        height: 100vh;
 
         .col-12{
             background:rgba(71, 84, 97, 0.92);
