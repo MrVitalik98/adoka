@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const helmet = require('helmet');
+const cookieParser = require('cookie-parser')
 const compression = require('compression');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -39,36 +40,28 @@ const store = new MongoStore({
 })
 
 
-    io.on('connection', socket => {
+io.on('connection', socket => {
 
-        socket.on('send_message', async data => {
-            socket.join(data.chatId)
+    socket.on('send_message', async data => {
+        socket.join(data.chatId)
 
-            let chat = await Chat.findById(data.chatId);
-            await chat.addMessage(data.userId, data.message, new Date());
-            let message = await chat.findMessageID(data.userId);
+        let chat = await Chat.findById(data.chatId);
+        await chat.addMessage(data.userId, data.message, new Date());
+        let message = await chat.findMessageID(data.userId);
 
-            io.to(data.chatId).emit('send_message', {...data, messageID: message._id});
-        })
-
-
-        socket.on('delete_message', async data => {
-            socket.join(data.chatId);
-
-            let chat = await Chat.findById(data.chatId);
-            await chat.deleteMessage(data.messageID);
-
-            io.to(data.chatId).emit('delete_message', data);
-        })
-
-
-
-        // socket.on('disconnect', () => {
-        //     console.log('disconnect user');
-        // })
+        io.to(data.chatId).emit('send_message', {...data, messageID: message._id});
     })
 
 
+    socket.on('delete_message', async data => {
+        socket.join(data.chatId);
+
+        let chat = await Chat.findById(data.chatId);
+        await chat.deleteMessage(data.messageID);
+
+        io.to(data.chatId).emit('delete_message', data);
+    })
+})
 
 
 app.use(express.static(path.join(__dirname,'/public')));
@@ -87,24 +80,23 @@ app.engine('hbs', exphbs({
 }));
 
 
-
-
 app.use(session({
     secret:keys.SESSION_SECRET,
     resave:false,
     saveUninitialized:false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
     store
 }))
 
 
 app.use(fileMiddleware.single('avatar'));
 app.use(flash());
+app.use(cookieParser());
 app.use(csrf());
 app.use(helmet());
 app.use(compression());
 app.use(sessionMiddleware);
 app.use(userMiddleware);
-
 
 
 app.use('/auth', authRoutes);
@@ -122,7 +114,7 @@ app.use('/', homeRoutes);
 app.use(error404);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 async function start(){
     await mongoose.connect(keys.MONGO_URI,{
