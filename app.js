@@ -110,11 +110,7 @@ app.use(error404);
 const PORT = process.env.PORT || 8080;
 
 async function start(){
-    await mongoose.connect(process.env.MONGO_URI,{
-        useNewUrlParser:true,
-        useUnifiedTopology:true,
-        useFindAndModify:false
-    })
+    mongoose.connect(process.env.MONGO_URI)
 
     server.listen(PORT, () => {
         console.log(`Server has been running on port ${PORT}`);
