@@ -1,0 +1,62 @@
+<div class="jumbotron">
+    <h3 class="text-center">Orders</h3>
+    <div class="alert bg-success w-75 mx-auto my-2 text-center text-light invisible">
+        <h6></h6>
+    </div>
+</div>
+
+<div class="container allOrders">
+    {{#if orders.length}}
+        {{#each orders}}
+                <div class="card mb-5 shadow mx-auto" id="{{_id}}" data-csrf="{{@root.csrf}}">
+                        <div class="card-body">
+                            <button class="btn waves-effect bg-dark text-light float-right" onclick="removeOrder(this)">
+                                <i class="material-icons cancel">cancel</i>
+                            </button>
+                            <br>
+                            <h5 class="text-center mb-4">
+                                <small class="font-weight-bold">{{_id}}</small>
+                            </h5>
+
+                            <h6 class="text-center">
+                                <strong class="date">{{date}}</strong>
+                            </h6>
+
+                            <table class="table mt-5 mb-3 table-hover mx-auto table-sm order-table">
+                                <thead>
+                                    <tr>
+                                        <th>Logo</th>
+                                        <th>Title</th>
+                                        <th>Count</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each courses}}
+                                        <tr>
+                                            <td class="image">
+                                                <img src="{{image}}" alt="{{title}}" class="logo">
+                                            </td>
+                                            <td>
+                                                <a href="/orders/{{orderId}}?courseId={{_id}}" class="link" onclick="openCourse(this)">
+                                                    {{title}}    
+                                                </a>
+                                            </td>
+                                            <td>{{count}}</td>
+                                            <td class="price">{{price}}</td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+
+                            <h5 class="card-text font-italic float-right d-block pr">Total: 
+                                <strong class="price">{{price}}</strong>
+                            </h5>
+                        </div>
+                </div>
+        {{/each}}
+    {{else}}
+        <h5 class="text-center">No Orders</h5>
+    {{/if}}
+</div>
+

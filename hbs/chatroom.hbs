@@ -1,0 +1,56 @@
+<div class="chatroom">
+	<nav class="navbar navbar-primary bg-primary">
+			<p class="float-left" id="arrow_back">
+				<a href="/chats" class="d-flex">
+					<i class="material-icons arrow_back">arrow_back</i>
+					&nbsp; Back
+				</a>
+			</a>
+			<div class="row">
+				<input type="hidden" id="pId" value={{person._id}}>
+
+				<div class="col-4">
+					{{#if person.avatarURL}}
+						<img src="{{person.avatarURL}}" alt="avatar" class="mx-auto border avatar d-block border-dark shadow-lg"/>
+					{{else}}
+						<img src="https://nodejs.org/static/images/logo-hexagon-card.png" alt="photoProfil" class="mx-auto border d-block border-dark shadow-lg" name="avatar"/>
+					{{/if}}
+				</div>
+
+				<div class="col-8">
+					{{#if person.id}}
+						<a href="../account/{{person.id}}">
+							<h6>{{person.firstname}} {{person.lastname}} <br>
+								<span class="text-center" id="connect"></span>
+							</h6>
+						</a>
+					{{else}}
+						<h6>{{person.firstname}} {{person.lastname}} <br>
+							<span class="text-center" id="connect"></span>
+						</h6>
+					{{/if}}
+				</div>
+			</div>
+	</nav>
+
+
+	<div class="container mx-4 mx-auto">	
+		<div id="user" data-id="{{user._id}}"></div>
+		<br>
+		<div id="chat" data-id="{{chat._id}}" data-csrf="{{csrf}}">
+			{{#if chat.messages.length}}
+				{{#each chat.messages}}
+					<div class="d-flex align-items-center" data-id="{{_id}}">
+						<p id="{{user}}" class="message">{{message}}<br>
+							<span class="message_date d-block">{{date}}</span>
+						</p>
+					</div>
+				{{/each}}
+			{{/if}}
+		</div>
+		<div class="form d-flex my-4">
+			<textarea class="form-control" id="message" cols="30" rows="1"></textarea>
+			<button class="btn btn-success float-right disabled" id="send_message">Send</button>
+		</div>
+	</div>
+</div>

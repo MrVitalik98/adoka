@@ -1,0 +1,30 @@
+<div class="chats">
+	<div class="container">
+		{{#if chats.length}}
+			{{#if isEmpty.length}}
+				{{#each chats}}
+					{{#if messages.length}}
+						<input type="hidden" value="{{user._id}}" id="userId">
+						<a href="/chatroom/{{id}}" data-id="{{id}}" data-csrf="{{@root.csrf}}" class="d-flex mx-auto mt-4 px-3 py-2 bg-dark text-light shadow">
+							{{#if user.avatarURL}}
+								<img src="{{user.avatarURL}}" alt="avatar" class="border avatar d-block border-dark shadow-lg">
+							{{else}}
+								<img src="https://nodejs.org/static/images/logo-hexagon-card.png" alt="avatar" class="border avatar d-block border-dark shadow-lg">
+							{{/if}}
+		 	
+		 					<div class="d-flex flex-column ml-3">
+								<h6 class="font-weight-bold">{{user.firstname}} {{user.lastname}}</h6>
+								<h6 class="text-warning">{{lastMessage}}</h6>
+							</div>
+						</a>
+					{{/if}}
+				{{/each}}
+			{{else}}
+				<h5 class="text-center">No messages</h5>
+			{{/if}}			
+		{{else}}
+			<h5 class="text-center">No messages</h5>
+		{{/if}}
+	</div>
+</div>
+

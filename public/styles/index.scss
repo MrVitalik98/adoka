@@ -1,0 +1,768 @@
+*, *::after, *::before{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:'New Times Roman';
+}
+
+#scrollTop{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    visibility: hidden;
+}
+
+.navbar-brand{
+    font-size: 20px;
+}
+
+ul.navbar-nav{
+    li.nav-item{
+        font-family:georgia;
+        font-size:18px;
+        font-weight:bold;
+        letter-spacing: 0.5px;
+    }
+}
+
+.form{
+    font-size:18px;
+}
+
+.returnHome a{
+    text-decoration: underline;
+    font-weight:bold;
+}
+
+.user-view{
+    .accountPhoto img{
+        width:150px;
+        height:150px;
+        border-radius:50%;
+    }
+    .userName{
+        span:first-child{
+            text-transform:capitalize;
+        }
+    }
+}
+
+#accountPhoto{
+    width:250px;
+    height:250px;
+}
+
+.fullName{
+    span{
+        text-transform: capitalize;
+    }
+}
+
+#addNewCourse{
+    width: 220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.sidenav {
+    li{
+        a{
+            text-decoration: none;
+            font-size:17px;
+            font-weight:bold;
+        }
+    }
+}
+
+
+nav{
+    position:sticky;
+}
+
+nav > a{
+    text-decoration: none;  
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+#nav-desktop {
+    li {
+        a{
+            font-size: 18px;
+            font-weight:bold;
+            text-decoration: none;
+        }
+    }
+}
+
+.card{
+    overflow: hidden;
+    width:600px;
+    margin:60px 0 60px 0;
+    .card-header{
+        padding:10px;
+        button{
+            margin: 0 -11px 0 0;
+        }
+        img{
+            width:250px;
+            height:250px;
+            border-radius:50%;
+            margin:0 auto;
+            display:block;
+        }
+    }
+
+    .card-body{
+        .card-title{
+            text-decoration: underline;
+            margin:5px 0 30px 0;
+            font-size:32px;
+            text-transform:capitalize;
+        }
+
+        button[onclick="removeOrder(this)"]{
+            transform:rotate(90deg);
+            margin:-12px -8px 0 0 ;
+        }
+    }
+}
+
+#paymentMethods{
+    width: 100%; 
+    justify-content: center;
+    margin: 30px 0 50px 0;
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+    }
+
+    form{
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+.pr{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    .price{
+        font-size: 22px;
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+
+
+img.img-thumbnail{
+    width:450px;
+    height:450px;
+    display:block;
+    margin:0 auto;
+}
+
+
+a.createCourse{
+    width:300px;
+    margin:0 auto;
+}
+
+
+table{
+    font-size: 17px;
+    margin: 40px 0 40px 0;
+    font-weight:bold;
+
+    thead{
+        tr th{
+            text-align: center;
+        }
+    }
+
+    tbody{
+        tr td{
+            text-align: center;
+            line-height:35px;
+            font-size: 1.15rem;
+        }
+        .courseLogo{
+            width: 35px;
+            height: 35px;
+            border-radius:50%;
+            border:1px solid rgb(106, 114, 122);
+        }
+
+        td.image img{
+            width:35px;
+            height:35px;
+            border:1px solid lightsteelblue;
+            border-radius:50%;
+        }
+    }
+}
+
+
+.list-group{
+    a{
+        text-decoration: none;
+        font-size:1.2em;
+        margin:5px 0 5px 0;
+        font-weight:bold;
+        background-color:rgb(176, 204, 222);
+        letter-spacing:0.7px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    form{
+        a[type="button"]{
+            margin:0;
+            font-size:12px;   
+            font-weight:lighter;
+        }
+    }
+    
+}
+
+
+.findCourse {
+    display:flex;
+    input[type="search"]{
+        width:300px;
+    }
+}
+
+
+a.register, a.forgetPass, a.courses{
+    text-decoration:underline;
+}
+
+
+.settings form{
+    input[name="frname"], input[name="lsname"]{
+        text-transform: capitalize;
+    }
+}
+
+.home{
+    background-color:#fff;
+    position: absolute;
+    overflow-x: hidden;
+    
+    .row {
+        height: 100vh;
+        display:flex;
+        align-items:center;
+
+        .alert{
+            position:absolute;
+            width:97%;
+        }
+        
+        .col-12{
+            &:first-child{
+                box-sizing: border-box;
+
+                .item{
+                    margin-top: 120px;
+
+                    h2 {
+                        font: {
+                            size: 40px;
+                            weight: 500;
+                        };
+                    }
+
+                    form{
+                        margin: 50px 0 80px 0;
+
+                        input {
+                            height: 42px;
+                            border-radius: 8px;
+                            padding: 0 20px;
+                        }
+
+                        a small{
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+
+            &:last-child{
+                background: url('../images/green-leaves-1072179.jpg') center no-repeat;
+                background-size: cover;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                text-shadow: 1px 1px 0px #000;
+                box-sizing: border-box;
+
+               .item{
+                   padding: 0 100px;
+                   font-family: 'New Times Roman';
+
+                    h4{
+                        font-size: 45px;
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                    }
+
+                    h6{
+                        font-size: 22px;
+                    }
+               }
+            }
+        }
+    }
+}
+    
+
+
+.forgetPassword{
+    overflow:hidden;
+
+    .row{
+        height: 100vh;
+        background:url('../images/close-up-photography-of-leaves-with-droplets-807598.jpg') center no-repeat;
+        background-size:cover;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+       
+        .col-12{
+            background:rgba(71, 84, 97, 0.96);
+            padding:30px;
+            color:#fff;
+        }
+
+        h3.fa-home{
+            margin: 5px 0 0 0 ;
+        }
+
+        a{
+            text-decoration:underline;
+        }
+    }
+}
+
+
+
+.newPasswordPage{
+    overflow:hidden;
+
+    .row{
+        background:url('../images/bench-cascade-creek-environment-355321.jpg') center no-repeat;
+        background-size:cover;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height: 100vh;
+        
+        .col-12{
+            background:rgba(71, 84, 97, 0.96);
+            padding:10px 10px 30px 10px;
+            color:#fff;
+            
+            .alert{
+                position:absolute;
+                width:90%;
+            }
+
+            h3{
+                margin:50px 0 30px 0;
+            }
+        }
+    }
+}
+
+
+.registerPage{
+    overflow: hidden;
+
+    .row{
+        background:url('../images/green-grass-field-and-green-tress-during-day-time-131723.jpg') center no-repeat;
+        background-size:cover;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height: 100vh;
+
+        .col-12{
+            background:rgba(71, 84, 97, 0.92);
+            padding:7px 0  30px 0;
+            color:#fff;
+            h2{
+                margin-top:10px;
+            }
+            margin:25px 0 25px 0;
+        }
+        h3{
+            color:orange;
+            margin:7px 0 10px 25px;
+            font-size:18px;
+            a{
+                text-decoration: underline;
+                color:orange;
+            }            
+        }
+    }
+}
+
+
+.spinnerPage{
+    display: flex;
+    min-height: 650px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.chatroom{
+    #arrow_back{
+        margin: -20px 0 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+    }
+
+    img{
+        width:45px;
+        height:45px;
+        border-radius: 50%;
+    }
+
+    .container {
+        height: 50%;
+        display: grid;
+        grid-template: 0 20px auto 78px / 100%;
+    }
+
+    #chat::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    #chat{
+        width: 100%;
+        overflow: auto;
+        padding: 0 10px;
+        height: 400px;
+
+        .btn{
+            display: none;
+            box-shadow: none;
+            border:none;
+        }
+
+        .message{
+            width: auto;
+            padding: 10px; 
+            max-width: 350px; 
+            border-radius:7px;
+            text-align:center;
+            
+
+            span{
+                font-size:11px;
+                float:right;
+            }
+        }
+    }
+
+    #message{
+        resize:none;
+        margin-right:2px;
+    }
+}
+
+
+.chats{
+    img{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+    }
+
+    .d-flex{
+        overflow: hidden;
+        width: 100%;
+        text-decoration: none;
+    }
+}
+
+
+
+// Media Queries
+
+
+@media screen and (max-width:768px){
+    .home{
+        background-color:rgb(213, 223, 213);
+
+        .row{
+            display:grid;
+            grid-template-rows:250px;
+            grid-template-columns:1fr;
+            align-items:center;
+            justify-content: center;
+            
+            .col-12{
+                    &:first-child{
+                        grid-row:3/4;
+
+                        .alert{
+                            width:100%;
+                            position:relative;
+                            margin-top:0;
+                        }
+                        .item{
+                            margin-top:20px;
+                            form{
+                                margin:30px 0 30px 0;
+                            }
+                            margin-bottom:30px;
+                        }
+                    }
+                    &:last-child{
+                        height: 280px;
+
+                        .item{
+                            padding:0 40px 0 40px;
+                            h4{
+                                font-size:27px;
+                            }
+                            h6{
+                                font-size:18px;
+                            }
+                        }
+                       
+                    }
+            }
+        }
+    }
+
+    #paymentMethods{
+        .container{
+            width: 80%;
+        }
+    }
+}
+
+
+@media screen and (max-width:576px){
+    h3{
+        font-size:34px;
+        text-transform: capitalize;
+    }
+
+    #accountPhoto{
+        width:200px;
+        height:200px;
+    }
+
+    #addNewCourse{
+        width: 200px;
+    }
+
+    a.createCourse{
+        width:270px;
+    }
+
+    .forgetPassword{
+        height:100%;
+        width:100%;
+        position:absolute;
+        overflow:hidden;
+        .row{
+            height:740px;
+            .col-12{
+                padding:7px 10px 30px 10px;
+                .title{
+                    font-size:25px;
+                    margin:35px 0 15px 0;
+                }
+            }
+        }
+    }
+
+    .newPasswordPage{
+        height:100%;
+        width:100%;
+        position:absolute;
+        overflow:hidden;
+        .row{
+            height:740px;
+            .col-12{
+                padding:7px 10px 30px 10px;
+                h3{
+                    font-size:25px;
+                    margin-top:55px;
+                }
+                .alert{
+                    position: absolute;
+                    width:95%;
+                }
+
+                form{
+                    margin:30px 0 50px 0;
+                }
+            }
+        }
+    }
+
+    .registerPage{
+        .row{
+            .alert{
+                width:95%;
+                margin:0 10px 0 10px;
+            }
+        }
+    }
+
+    img.img-thumbnail{
+        height:300px;
+    }
+
+    .card{
+        width: 300px;
+        .card-header{
+            img{
+                width:180px;
+                height:180px;
+            }
+            
+            h6{
+                margin:15px 0 -5px 0;
+                font-size:15px;
+            }
+        
+        }
+        .card-body{
+            .card-title{
+                font-size:26px;
+                font-weight:bold;
+            }
+
+            button{
+                margin:-5px;
+            }
+
+            .pr{
+                font-size:18px;
+                margin-bottom:-3px;
+                .price{
+                    font-size:19px;
+                }
+            }
+
+            .item{
+                margin-top:30px;
+                a.btn{
+                    margin-top:17px;
+                }
+                .pr{
+                    margin-top:25px;
+                }
+            }
+        }
+    }
+
+    .findCourse {
+        display:flex;
+        input[type="search"]{
+            width:242px;
+        }
+    }
+
+    .chatroom{
+        #chat{
+            height:420px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .message{
+                max-width:270px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:374px){
+    table.table{
+        width:250px;
+        margin-left:-14px;
+    }
+
+    .findCourse {
+        display:flex;
+        input[type="search"]{
+            width:200px;
+        }
+    } 
+
+    .chatroom{
+        #chat{
+            .message{
+                max-width:220px;
+            }
+        }
+    }  
+}
+
+
+@media screen and (max-width:320px){
+    table.table{
+        margin-left:-35px;
+    }
+
+    .findCourse {
+        display:flex;
+        input[type="search"]{
+            width:170px;
+        }
+    }
+
+    .home{
+        .row{
+            grid-template-rows:180px;
+            .col-12{
+                &:last-child{
+                    height:180px;
+                    .item{
+                        h6{
+                            font-size:16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .chatroom{
+        #chat{
+            height:350px;
+            .message{
+                max-width:150px;
+            }
+        }
+    }
+}

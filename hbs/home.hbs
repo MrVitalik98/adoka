@@ -1,0 +1,59 @@
+<div class="home">
+    <div class="row">
+            <div class="col-12 col-md-4">  
+                    {{#if error}}
+                        <div class="alert text-center text-light alert-dismissible bg-danger">
+                            <button class="close" data-dismiss="alert">&times;</button>
+                            {{error}}
+                        </div>
+                    {{/if}}
+
+                    {{#if success}}
+                        <div class="alert text-center text-light alert-dismissible bg-success">
+                            <button class="close" data-dismiss="alert">&times;</button>
+                            {{success}}
+                        </div>
+                    {{/if}} 
+                <div class="item">
+                    <h2 class="text-center">Sign In</h2>
+                        <form class="form mx-auto w-75" action="/auth/login" method="POST">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            <h6 class="float-right d-none d-md-block my-1">
+                                <a href="/auth/reset" class="forgetPass">
+                                    <small class="font-weight-bold">Forgot password?</small>
+                                </a>
+                            </h6>
+                                
+                            <input type="password" class="form-control my-md-2 my-2" placeholder="Password" name="pass" required>    
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+
+                            <h6 class="float-right d-md-none">
+                                <a href="/auth/reset" class="forgetPass">
+                                    <small class="font-weight-bold">Forgot password ?</small>
+                                </a>
+                            </h6>
+
+                            <button type="submit" class="btn btn-success float-left float-md-right">sign in</button>
+                        </form>
+
+                        <br><br>
+
+                        <h6 class="text-center mt-5">
+                            <i class="fa fa-lock">&nbsp;</i>
+                            <a href="/auth/register" class="register">Register</a>&nbsp;a new account
+                        </h6>
+                    </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="item">
+                    <h4 class="text-center font-weight-bold text-success">aDoKa</h4>
+                    <h6 class="text-center">
+                        Hello, welcome to <b class="text-warning">aDoKa</b> page.
+                        Here you can find <a href="/courses" class="text-info courses">courses</a> for you to buy them or create your own courses...
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        

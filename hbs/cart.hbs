@@ -1,0 +1,58 @@
+<div class="jumbotron">
+    <h3 class="text-center">Cart</h3>
+</div>
+
+<div class="container userCart" data-csrf="{{csrf}}">
+    {{#if cart.length}}
+            <table class="table table-light table-hover shadow border">
+                <thead class="table-dark bg-dark">
+                    <tr>
+                        <th>Logo</th>
+                        <th>Title</th>
+                        <th>Count</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each cart}}
+                        <tr id="{{_id}}" data-csrf="{{@root.csrf}}">
+                            <td>
+                                <img src="{{image}}" alt="{{title}}" class="courseLogo">
+                            </td>
+                            <td>
+                                <a href='/courses/{{_id}}'>{{title}}</a>
+                            </td>
+                            <td>{{count}}</td>
+                            <td>
+                                <div class="btn-group">
+                                     <button class="btn btn-small rounded shadow waves-effect" onclick="increaseTheAmount(this)">
+                                        <i class="small material-icons add">add</i>
+                                     </button>
+                                      <button class="btn btn-small orange rounded shadow fa ml-1 fa-trash" onclick="removeCourseFromCart(this)"></button>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+       
+        <p class="pr text-right mt-3 mr-md-3">Price:
+            <strong class="price">{{price}}</strong>
+        </p>
+
+        <div class="btn-group" id="paymentMethods">
+            <div class="container">
+                <button id="checkout" class="btn w-100 green waves-effect">Pay with Stripe (Card)</button>
+                <form action="/orders/pay" method="POST">
+                    <input type="hidden" name="_csrf" value="{{csrf}}">
+                    <button type="submit" class="btn waves-effect w-100 btn orangered">Pay with PayPal</button>
+                </form>
+            </div>
+        </div>
+        
+        
+
+    {{else}}
+        <h5 class="text-center">Cart is empty</h5>
+    {{/if}}
+</div>

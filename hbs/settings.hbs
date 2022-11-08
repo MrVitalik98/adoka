@@ -1,0 +1,170 @@
+<div class="jumbotron">
+    <h3 class="text-center">Settings</h3>
+    <h5 class="text-center">Change Personal Data</h5>    
+    <br>
+    {{#if error}}
+        <div class="alert alert-dismissible bg-danger text-center text-light w-75 mx-auto">
+            <button class="close float-right" data-dismiss="alert">&times;</button>
+            <h6>{{error}}</h6>
+        </div>
+    {{/if}}
+</div>
+
+<div class="container settings">
+    <div id="accordion">
+        <div class="list-group">
+
+        
+        <a href="#prphoto" class="text-dark list-group-item text-center" data-toggle="collapse">Your Avatar</a>
+
+            <div class="collapse" data-parent="#accordion" id="prphoto">
+                {{#if user.avatarURL}}
+                    <form class="m-3 px-3 mx-auto" action="/settings/change_avatar" method="POST" enctype="multipart/form-data">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <i class="material-icons assignment_ind">assignment_ind</i>
+                                <input type="file" name="avatar" required>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="avatar">
+                            </div>
+                        </div>
+
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            
+                            <button type="submit" class="btn w-75 form-control green mx-auto d-flex justify-content-center">
+                                <i class="material-icons edit">edit</i>
+                                &nbsp;Change
+                            </button>       
+                    </form>
+
+                    <form class="form px-2 w-75 mb-4 mx-auto" action="/settings/remove_avatar/{{user._id}}" method="POST">
+                    
+                        <input type="hidden" name='_csrf' value='{{csrf}}'>
+                    
+                        <button type="submit" class="btn form-control red">
+                            <i class="fa fa-trash"></i>
+                            &nbsp;Remove
+                        </button>
+                    </form> 
+                {{else}}
+                    <form class="m-3 px-3 mx-auto" action="/settings/change_avatar" method="POST" enctype="multipart/form-data" novalidate>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <i class="material-icons assignment_ind">assignment_ind</i>
+                                <input type="file" name="avatar" required>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="avatar">
+                            </div>
+                        </div>
+
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            
+                            <button type="submit" class="btn green float-right d-flex mb-4">
+                                <i class="material-icons edit">edit</i>
+                                &nbsp;Change
+                            </button>
+                    </form>
+                {{/if}}
+            </div>
+            
+            
+
+            <a href="#name" class="text-dark list-group-item text-center" data-toggle="collapse">Your Name</a>
+            
+            <div class="collapse" data-parent="#accordion" id="name">
+                    <form class="m-3 px-3 mx-auto" action="/settings/change_name" method="POST">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input  id="frname" type="text" minlength="3" class="validate" name="frname" value="{{user.firstname}}" required>
+                                    <label for="frname">First name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">account_box</i>
+                                    <input id="lsname" type="text" minlength="3" class="validate" name="lsname" value="{{user.lastname}}" required>
+                                    <label for="lsname">Last name</label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <button type="submit" class="btn mb-4 green float-right d-flex">
+                                <i class="material-icons edit">edit</i>
+                                &nbsp;Change
+                            </button>
+                    </form>
+            </div>
+
+
+
+            <a href="#pass" class="text-dark list-group-item text-center" data-toggle="collapse">Your Password</a>
+            
+            <div class="collapse" data-parent="#accordion" id="pass">
+                    <form class="m-3 px-4 mx-auto" action="/settings/change_password" method="POST">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="fa fa-key text-danger prefix"></i>
+                                    <input  id="currentpass" type="password" min="6" class="validate" name="currentpass" required>
+                                    <label for="currentpass">Enter your current password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="fa fa-key text-success prefix"></i>
+                                    <input id="newpass" type="password" min="6" class="validate" name="newpass" required>
+                                    <label for="newpass">Enter a new password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="fa fa-lock text-success prefix"></i>
+                                    <input id="confirm" type="password" min="6" class="validate" name="confirm" required>
+                                    <label for="confirm">Enter the new password again</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <button type="submit" class="btn mb-4 green float-right d-flex">
+                                <i class="material-icons edit">edit</i>
+                                &nbsp;Change
+                            </button>
+                    </form>
+            </div>
+
+
+
+            <a href="#del" class="list-group-item text-danger text-center" data-toggle="collapse">Remove Account</a>
+
+                <div class="collapse border m-3" data-parent="#accordion" id="del">
+                    <h6 class="text-center mt-4">Why do you want to delete your account?</h6>
+                    <form class="m-3 w-75 mx-auto" action="/settings/remove_account" method="POST">
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" required/>
+                                    <span class="black-text">Not interested</span>
+                                </label>
+                            </p>
+
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" required/>
+                                    <span class="black-text">There is another account</span>
+                                </label>
+                            </p>
+
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" required/>
+                                    <span class="black-text">Other</span>
+                                </label>
+                            </p>
+
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <button type="submit" class="btn mt-3 mb-4 red float-right">remove</button>
+                    </form>
+                </div>
+        </div>       
+    </div>
+</div>
