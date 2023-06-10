@@ -1,0 +1,16 @@
+runtime: nodejs14
+
+env_variables:
+  AWS_ACCESS_KEY_ID: "AKIAU4RNJDS6KJW5YKP3"
+  AWS_SECRET_ACCESS_KEY: "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"
+  SENDGRID_API_KEY: "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"
+  BASE_URL: "https://acquired-storm-277806.oa.r.appspot.com/"
+  FROM_EMAIL: "cmsw@list.ru"
+  FROM_EMAIL_PASSWORD: "EjFL8bUFMz85FfHSXZ5L"
+  LOGO: "https://adoka-bucket.s3.amazonaws.com/adoka-logo.png"
+  MONGO_URI: "mongodb+srv://myadmin:cyberpunk2077@firstcluster.6g2gy.mongodb.net/adokadbs"
+  PAYPAL_CLIENT_ID: "ARvn21dYvifrsgQfEPl1PxBdY-zq_1ClyOK8-4N9Hk9uEnIZFU5T81VSWZnUcADuL2Uwrap0oDPrU1O6"
+  PAYPAL_CLIENT_SECRET: "EJ-uaxV_YHjo-82uCB-sbzwkloAwOiZoRhwJKQtwlsp8SkB0pt_ytJ_SqlXCktg9-E4BOUjLlRJkOcv2"
+  S3_BUCKET_NAME: "adoka-bucket"
+  SESSION_SECRET: "42adoka456project89"
+  STRIPE_SECRET_KEY: "sk_test_51HQYwUGgtit1tIvZjU5VGiaskLhCb21WdLypoxzHETElBPPgRFEaLKETCE5rEw589rzFNL4lcSb6vj1yKtuQzMkg00QYiDVaEb"
